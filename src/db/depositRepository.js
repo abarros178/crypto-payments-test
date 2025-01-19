@@ -1,11 +1,18 @@
-import db from './connection.js';
-import { DatabaseError } from '../utils/errors.js';
+import db from "./connection.js";
+import { DatabaseError } from "../utils/errors.js";
 
 /**
  * Guarda una transacción fallida en la base de datos.
  * @param {Object} transaction - Detalles de la transacción fallida.
  */
-export async function saveFailedTransaction({ executionId, txid, address, amount, confirmations, reason }) {
+export async function saveFailedTransaction({
+  executionId,
+  txid,
+  address,
+  amount,
+  confirmations,
+  reason,
+}) {
   try {
     const query = `
       INSERT INTO failed_transactions (execution_id, txid, address, amount, confirmations, reason)
@@ -14,7 +21,9 @@ export async function saveFailedTransaction({ executionId, txid, address, amount
     const values = [executionId, txid, address, amount, confirmations, reason];
     await db.query(query, values);
   } catch (error) {
-    throw new DatabaseError(`Error al registrar transacción fallida: ${error.message}`);
+    throw new DatabaseError(
+      `Error al registrar transacción fallida: ${error.message}`
+    );
   }
 }
 
@@ -32,7 +41,9 @@ export async function getAllValidDeposits(minConfirmations) {
     const { rows } = await db.query(query, [minConfirmations]);
     return rows;
   } catch (error) {
-    throw new DatabaseError(`Error al obtener depósitos válidos: ${error.message}`);
+    throw new DatabaseError(
+      `Error al obtener depósitos válidos: ${error.message}`
+    );
   }
 }
 
@@ -49,30 +60,35 @@ export async function saveExecutionLog({ executionId, logLevel, message }) {
     const values = [executionId, logLevel, message];
     await db.query(query, values);
   } catch (error) {
-    throw new DatabaseError(`Error al guardar log de ejecución: ${error.message}`);
+    throw new DatabaseError(
+      `Error al guardar log de ejecución: ${error.message}`
+    );
   }
 }
-
 
 /**
  * Guarda múltiples depósitos válidos en batch.
  */
-export async function saveValidDepositsInBatch(deposits) {
+export async function saveValidDepositsInBatch(deposits, batchSize = 500) {
   if (deposits.length === 0) return;
 
-  const values = deposits
-    .map(({ txid, address, amount, confirmations, executionId }) =>
-      `('${txid}', '${address}', ${amount}, ${confirmations}, '${executionId}')`
-    )
-    .join(", ");
+  for (let i = 0; i < deposits.length; i += batchSize) {
+    const batch = deposits.slice(i, i + batchSize);
+    const values = batch
+      .map(
+        ({ txid, address, amount, confirmations, executionId }) =>
+          `('${txid}', '${address}', ${amount}, ${confirmations}, '${executionId}')`
+      )
+      .join(", ");
 
-  const query = `
-    INSERT INTO deposits (txid, address, amount, confirmations, execution_id)
-    VALUES ${values}
-    ON CONFLICT (txid) DO NOTHING
-  `;
+    const query = `
+      INSERT INTO deposits (txid, address, amount, confirmations, execution_id)
+      VALUES ${values}
+      ON CONFLICT (txid) DO NOTHING
+    `;
 
-  await db.query(query);
+    await db.query(query);
+  }
 }
 
 /**
@@ -82,8 +98,9 @@ export async function saveFailedTransactionsInBatch(transactions) {
   if (transactions.length === 0) return;
 
   const values = transactions
-    .map(({ executionId, txid, address, amount, confirmations, reason }) =>
-      `('${executionId}', '${txid}', '${address}', ${amount}, ${confirmations}, '${reason}')`
+    .map(
+      ({ executionId, txid, address, amount, confirmations, reason }) =>
+        `('${executionId}', '${txid}', '${address}', ${amount}, ${confirmations}, '${reason}')`
     )
     .join(", ");
 
@@ -93,4 +110,14 @@ export async function saveFailedTransactionsInBatch(transactions) {
   `;
 
   await db.query(query);
+}
+
+export async function getExistingTxids(txids) {
+  try {
+    const query = `SELECT txid FROM deposits WHERE txid = ANY($1)`;
+    const { rows } = await db.query(query, [txids]);
+    return rows;
+  } catch (error) {
+    throw new DatabaseError(`Error al obtener txids existentes: ${error.message}`);
+  }
 }

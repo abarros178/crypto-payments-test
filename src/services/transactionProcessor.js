@@ -1,91 +1,126 @@
 import { readJsonFile } from "../utils/fileReader.js";
 import {
-  saveFailedTransaction,
-  getAllValidDeposits,
   saveValidDepositsInBatch,
   saveFailedTransactionsInBatch,
+  getAllValidDeposits,
+  getExistingTxids
 } from "../db/depositRepository.js";
-import { KNOWN_ADDRESSES, MIN_CONFIRMATIONS } from "../config/index.js";
+import { MIN_CONFIRMATIONS, KNOWN_ADDRESSES } from "../config/index.js";
 import { logger } from "../utils/logger.js";
 import {
   TransactionValidationError,
   FileProcessingError,
   DatabaseError,
 } from "../utils/errors.js";
-
-const validDeposits = [];
-const failedTransactions = [];
+import db from "../db/connection.js";
 
 /**
- * Procesa todas las transacciones de los archivos JSON de forma concurrente.
+ * Procesa todas las transacciones de los archivos JSON.
  */
 export async function processTransactions(executionId) {
   const files = ["transactions-1.json", "transactions-2.json"];
+  const seenTxids = new Set(); // Conjunto global de txids vistos en la ejecución actual
 
-  // Procesar todos los archivos de forma concurrente
-  await Promise.all(files.map((file) => processFile(file, executionId)));
+  try {
+    for (const file of files) {
+      await processFile(file, executionId, seenTxids);
+    }
+    logger.info("✅ Procesamiento completado para todos los archivos.");
+  } catch (error) {
+    logger.error(`❌ Error al procesar transacciones: ${error.message}`);
+  }
 }
 
 /**
  * Procesa un archivo JSON de transacciones.
  */
-async function processFile(file, executionId) {
+async function processFile(file, executionId, seenTxids) {
   try {
     const data = await readJsonFile(file);
     validateFileData(data, file);
 
-    // Procesar todas las transacciones
-    await Promise.all(
-      data.transactions.map((tx) => handleTransaction(tx, executionId))
+    // Extraer todos los txid del archivo actual
+    const fileTxids = data.transactions.map((tx) => tx.txid);
+
+    // Consultar cuáles de esos txid ya existen en la base de datos
+    const existingFromDB = await getExistingTxids(fileTxids);
+    existingFromDB.forEach((row) => seenTxids.add(row.txid));
+
+    const { validDeposits, failedTransactions } = classifyTransactions(
+      data.transactions,
+      executionId,
+      seenTxids
     );
 
-    // Guardar en batch
-    await saveValidDepositsInBatch(validDeposits);
-    await saveFailedTransactionsInBatch(failedTransactions);
+    // Inicia la transacción
+    await db.query("BEGIN");
+    try {
+      await saveValidDepositsInBatch(validDeposits);
+      await saveFailedTransactionsInBatch(failedTransactions);
+      await db.query("COMMIT"); // Confirma los cambios
+    } catch (error) {
+      await db.query("ROLLBACK"); // Revierte los cambios en caso de error
+      throw new DatabaseError(
+        `Error al guardar datos en la base: ${error.message}`
+      );
+    }
 
-    // Limpiar las listas después de guardar
-    validDeposits.length = 0;
-    failedTransactions.length = 0;
+    logger.info(
+      `✅ Procesamiento completado para archivo: ${file}. Válidas: ${validDeposits.length}, Fallidas: ${failedTransactions.length}`
+    );
   } catch (error) {
-    handleFileError(error, file);
+    if (error instanceof FileProcessingError) {
+      logger.error(`❌ Error en archivo ${file}: ${error.message}`);
+    } else {
+      logger.error(`❌ Error inesperado en archivo ${file}: ${error.message}`);
+    }
   }
 }
 
 /**
- * Maneja una transacción individual.
+ * Clasifica transacciones en válidas y fallidas.
  */
-async function handleTransaction(tx, executionId) {
-  try {
-    validateTransaction(tx);
+function classifyTransactions(transactions, executionId, seenTxids) {
+  const validDeposits = [];
+  const failedTransactions = [];
+  let totalProcessed = 0;
 
-    if (isValidDeposit(tx)) {
-      validDeposits.push({
-        txid: tx.txid,
-        address: tx.address,
-        amount: tx.amount,
-        confirmations: tx.confirmations,
-        executionId,
-      });
-    } else {
-      failedTransactions.push({
-        executionId,
-        txid: tx.txid,
-        address: tx.address,
-        amount: tx.amount,
-        confirmations: tx.confirmations,
-        reason: getFailureReason(tx),
-      });
+  for (const tx of transactions) {
+    totalProcessed++;
+    try {
+      validateTransaction(tx);
+
+      if (seenTxids.has(tx.txid)) {
+        failedTransactions.push(
+          formatFailedTransaction(tx, executionId, "Transacción duplicada")
+        );
+        continue;
+      }
+
+      if (isValidDeposit(tx)) {
+        validDeposits.push(formatValidDeposit(tx, executionId));
+        seenTxids.add(tx.txid);
+      } else {
+        failedTransactions.push(
+          formatFailedTransaction(tx, executionId, "Condición inválida")
+        );
+      }
+    } catch (error) {
+      if (error instanceof TransactionValidationError) {
+        failedTransactions.push(
+          formatFailedTransaction(tx, executionId, error.message)
+        );
+      } else {
+        throw error;
+      }
     }
-  } catch (error) {
-    failedTransactions.push({
-      executionId,
-      txid: tx.txid || null,
-      address: tx.address || null,
-      amount: tx.amount || null,
-      confirmations: tx.confirmations || null,
-      reason: error.message,
-    });
   }
+
+  logger.info(
+    `Total procesadas: ${totalProcessed}, Válidas: ${validDeposits.length}, Fallidas: ${failedTransactions.length}`
+  );
+
+  return { validDeposits, failedTransactions };
 }
 
 /**
@@ -125,45 +160,30 @@ function isValidDeposit(tx) {
 }
 
 /**
- * Devuelve la razón por la cual una transacción falló.
+ * Formatea una transacción válida.
  */
-function getFailureReason(tx) {
-  if (tx.category !== "receive") return "Categoría inválida";
-  if (tx.amount <= 0) return "Monto negativo o cero";
-  return "Confirmaciones insuficientes";
+function formatValidDeposit(tx, executionId) {
+  return {
+    txid: tx.txid,
+    address: tx.address,
+    amount: tx.amount,
+    confirmations: tx.confirmations,
+    executionId,
+  };
 }
 
 /**
- * Maneja errores de transacciones.
+ * Formatea una transacción fallida.
  */
-async function handleTransactionError(error, tx, executionId) {
-  if (error instanceof TransactionValidationError) {
-    logger.warn(`Transacción inválida: ${error.message}`);
-    await saveFailedTransaction({
-      executionId,
-      txid: tx.txid || null,
-      address: tx.address || null,
-      amount: tx.amount || null,
-      confirmations: tx.confirmations || null,
-      reason: error.message,
-    });
-  } else {
-    logger.error(`Error inesperado en transacción: ${error.message}`);
-    throw error;
-  }
-}
-
-/**
- * Maneja errores al procesar archivos.
- */
-function handleFileError(error, file) {
-  if (error instanceof FileProcessingError) {
-    logger.error(`Error al procesar archivo ${file}: ${error.message}`);
-  } else {
-    logger.error(
-      `Error inesperado al procesar archivo ${file}: ${error.message}`
-    );
-  }
+function formatFailedTransaction(tx, executionId, reason) {
+  return {
+    executionId,
+    txid: tx.txid || null,
+    address: tx.address || null,
+    amount: tx.amount || null,
+    confirmations: tx.confirmations || null,
+    reason,
+  };
 }
 
 export async function aggregateValidDeposits() {
