@@ -1,0 +1,91 @@
+[2025-01-19T21:54:06.610Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Ejecución 1fb3536d-30e2-4b61-b095-60dab86570c4 iniciada.
+[2025-01-19T21:54:06.696Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Procesamiento de transacciones completado.
+[2025-01-19T21:54:06.704Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Deposited for Wesley Crusher: count=35 sum=183.00000000
+[2025-01-19T21:54:06.709Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Deposited for Leonard McCoy: count=18 sum=97.00000000
+[2025-01-19T21:54:06.713Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Deposited for Jonathan Archer: count=19 sum=97.49000000
+[2025-01-19T21:54:06.718Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Deposited for Jadzia Dax: count=15 sum=71.83000000
+[2025-01-19T21:54:06.722Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Deposited for Montgomery Scott: count=27 sum=131.93253000
+[2025-01-19T21:54:06.726Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Deposited for James T. Kirk: count=21 sum=1210.60058269
+[2025-01-19T21:54:06.731Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Deposited for Spock: count=16 sum=827.64088710
+[2025-01-19T21:54:06.736Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Deposited without reference: count=23 sum=1151.88738228
+[2025-01-19T21:54:06.740Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Smallest valid deposit: 0.00000010
+[2025-01-19T21:54:06.745Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Largest valid deposit: 99.61064066
+[2025-01-19T21:54:06.748Z] INFO: [Execution ID: 1fb3536d-30e2-4b61-b095-60dab86570c4] Ejecución 1fb3536d-30e2-4b61-b095-60dab86570c4 finalizada correctamente.
+[2025-01-19T21:57:39.888Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Ejecución 6223d513-16f7-46e2-9ba4-2862bc74b4b1 iniciada.
+[2025-01-19T21:57:39.997Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Procesamiento de transacciones completado.
+[2025-01-19T21:57:40.004Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Deposited for Wesley Crusher: count=0 sum=0.00000000
+[2025-01-19T21:57:40.008Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Deposited for Leonard McCoy: count=0 sum=0.00000000
+[2025-01-19T21:57:40.013Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Deposited for Jonathan Archer: count=0 sum=0.00000000
+[2025-01-19T21:57:40.018Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Deposited for Jadzia Dax: count=0 sum=0.00000000
+[2025-01-19T21:57:40.022Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Deposited for Montgomery Scott: count=0 sum=0.00000000
+[2025-01-19T21:57:40.027Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Deposited for James T. Kirk: count=0 sum=0.00000000
+[2025-01-19T21:57:40.032Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Deposited for Spock: count=0 sum=0.00000000
+[2025-01-19T21:57:40.036Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Deposited without reference: count=0 sum=0.00000000
+[2025-01-19T21:57:40.041Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Smallest valid deposit: 0.00000000
+[2025-01-19T21:57:40.045Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Largest valid deposit: 0.00000000
+[2025-01-19T21:57:40.049Z] INFO: [Execution ID: 6223d513-16f7-46e2-9ba4-2862bc74b4b1] Ejecución 6223d513-16f7-46e2-9ba4-2862bc74b4b1 finalizada correctamente.
+[2025-01-19T21:58:34.412Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Ejecución b9d1416d-dca9-4be4-9af0-bf887a045abe iniciada.
+[2025-01-19T21:58:34.495Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Procesamiento de transacciones completado.
+[2025-01-19T21:58:34.501Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Deposited for Wesley Crusher: count=0 sum=0.00000000
+[2025-01-19T21:58:34.505Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Deposited for Leonard McCoy: count=0 sum=0.00000000
+[2025-01-19T21:58:34.510Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Deposited for Jonathan Archer: count=0 sum=0.00000000
+[2025-01-19T21:58:34.514Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Deposited for Jadzia Dax: count=0 sum=0.00000000
+[2025-01-19T21:58:34.519Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Deposited for Montgomery Scott: count=0 sum=0.00000000
+[2025-01-19T21:58:34.524Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Deposited for James T. Kirk: count=0 sum=0.00000000
+[2025-01-19T21:58:34.528Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Deposited for Spock: count=0 sum=0.00000000
+[2025-01-19T21:58:34.532Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Deposited without reference: count=0 sum=0.00000000
+[2025-01-19T21:58:34.536Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Smallest valid deposit: 0.00000000
+[2025-01-19T21:58:34.540Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Largest valid deposit: 0.00000000
+[2025-01-19T21:58:34.545Z] INFO: [Execution ID: b9d1416d-dca9-4be4-9af0-bf887a045abe] Ejecución b9d1416d-dca9-4be4-9af0-bf887a045abe finalizada correctamente.
+[2025-01-19T21:58:41.904Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Ejecución 36158877-7097-4986-9a9c-4319d42b09cb iniciada.
+[2025-01-19T21:58:41.986Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Procesamiento de transacciones completado.
+[2025-01-19T21:58:41.992Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Deposited for Wesley Crusher: count=0 sum=0.00000000
+[2025-01-19T21:58:41.996Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Deposited for Leonard McCoy: count=0 sum=0.00000000
+[2025-01-19T21:58:42.000Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Deposited for Jonathan Archer: count=0 sum=0.00000000
+[2025-01-19T21:58:42.004Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Deposited for Jadzia Dax: count=0 sum=0.00000000
+[2025-01-19T21:58:42.008Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Deposited for Montgomery Scott: count=0 sum=0.00000000
+[2025-01-19T21:58:42.013Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Deposited for James T. Kirk: count=0 sum=0.00000000
+[2025-01-19T21:58:42.017Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Deposited for Spock: count=0 sum=0.00000000
+[2025-01-19T21:58:42.022Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Deposited without reference: count=0 sum=0.00000000
+[2025-01-19T21:58:42.027Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Smallest valid deposit: 0.00000000
+[2025-01-19T21:58:42.030Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Largest valid deposit: 0.00000000
+[2025-01-19T21:58:42.034Z] INFO: [Execution ID: 36158877-7097-4986-9a9c-4319d42b09cb] Ejecución 36158877-7097-4986-9a9c-4319d42b09cb finalizada correctamente.
+[2025-01-19T21:59:44.235Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Ejecución a2172563-9be3-4edb-944b-05827bb02df8 iniciada.
+[2025-01-19T21:59:44.360Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Procesamiento de transacciones completado.
+[2025-01-19T21:59:44.377Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Deposited for Wesley Crusher: count=0 sum=0.00000000
+[2025-01-19T21:59:44.388Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Deposited for Leonard McCoy: count=0 sum=0.00000000
+[2025-01-19T21:59:44.401Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Deposited for Jonathan Archer: count=0 sum=0.00000000
+[2025-01-19T21:59:44.415Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Deposited for Jadzia Dax: count=0 sum=0.00000000
+[2025-01-19T21:59:44.428Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Deposited for Montgomery Scott: count=0 sum=0.00000000
+[2025-01-19T21:59:44.439Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Deposited for James T. Kirk: count=0 sum=0.00000000
+[2025-01-19T21:59:44.453Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Deposited for Spock: count=0 sum=0.00000000
+[2025-01-19T21:59:44.467Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Deposited without reference: count=0 sum=0.00000000
+[2025-01-19T21:59:44.479Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Smallest valid deposit: 0.00000000
+[2025-01-19T21:59:44.492Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Largest valid deposit: 0.00000000
+[2025-01-19T21:59:44.502Z] INFO: [Execution ID: a2172563-9be3-4edb-944b-05827bb02df8] Ejecución a2172563-9be3-4edb-944b-05827bb02df8 finalizada correctamente.
+[2025-01-19T22:02:34.576Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Ejecución e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e iniciada.
+[2025-01-19T22:02:34.673Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Procesamiento de transacciones completado.
+[2025-01-19T22:02:34.683Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Deposited for Wesley Crusher: count=35 sum=183.00000000
+[2025-01-19T22:02:34.687Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Deposited for Leonard McCoy: count=18 sum=97.00000000
+[2025-01-19T22:02:34.691Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Deposited for Jonathan Archer: count=19 sum=97.49000000
+[2025-01-19T22:02:34.695Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Deposited for Jadzia Dax: count=15 sum=71.83000000
+[2025-01-19T22:02:34.700Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Deposited for Montgomery Scott: count=27 sum=131.93253000
+[2025-01-19T22:02:34.704Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Deposited for James T. Kirk: count=21 sum=1210.60058269
+[2025-01-19T22:02:34.709Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Deposited for Spock: count=16 sum=827.64088710
+[2025-01-19T22:02:34.713Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Deposited without reference: count=23 sum=1151.88738228
+[2025-01-19T22:02:34.718Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Smallest valid deposit: 0.00000010
+[2025-01-19T22:02:34.722Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Largest valid deposit: 99.61064066
+[2025-01-19T22:02:34.726Z] INFO: [Execution ID: e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e] Ejecución e9a6b123-6efb-42f8-b3f2-2b0ef9dc517e finalizada correctamente.
+[2025-01-19T22:04:23.899Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Ejecución cecdecdd-53f9-4cd9-9542-b14008a25130 iniciada.
+[2025-01-19T22:04:23.982Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Procesamiento de transacciones completado.
+[2025-01-19T22:04:23.988Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Deposited for Wesley Crusher: count=0 sum=0.00000000
+[2025-01-19T22:04:23.992Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Deposited for Leonard McCoy: count=0 sum=0.00000000
+[2025-01-19T22:04:23.997Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Deposited for Jonathan Archer: count=0 sum=0.00000000
+[2025-01-19T22:04:24.001Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Deposited for Jadzia Dax: count=0 sum=0.00000000
+[2025-01-19T22:04:24.005Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Deposited for Montgomery Scott: count=0 sum=0.00000000
+[2025-01-19T22:04:24.010Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Deposited for James T. Kirk: count=0 sum=0.00000000
+[2025-01-19T22:04:24.013Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Deposited for Spock: count=0 sum=0.00000000
+[2025-01-19T22:04:24.018Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Deposited without reference: count=0 sum=0.00000000
+[2025-01-19T22:04:24.022Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Smallest valid deposit: 0.00000000
+[2025-01-19T22:04:24.026Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Largest valid deposit: 0.00000000
+[2025-01-19T22:04:24.029Z] INFO: [Execution ID: cecdecdd-53f9-4cd9-9542-b14008a25130] Ejecución cecdecdd-53f9-4cd9-9542-b14008a25130 finalizada correctamente.

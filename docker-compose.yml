@@ -70,6 +70,7 @@ services:
       - postgres_password
     volumes:
       - ./data:/app/data
+      - ./logs:/app/logs
     entrypoint: ["/bin/sh", "/usr/local/bin/docker-entrypoint.sh"]
 
 volumes:

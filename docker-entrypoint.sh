@@ -10,6 +10,9 @@ done
 echo "Ejecutando migraciones..."
 npm run migrate
 
-# Mantener el contenedor activo sin bucle
+# Iniciar la aplicación en segundo plano
 echo "🚀 Iniciando aplicación..."
-exec npm start
+npm start &
+
+# Mantener el contenedor activo
+tail -f /dev/null
