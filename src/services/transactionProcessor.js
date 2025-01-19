@@ -12,6 +12,7 @@ import {
   FileProcessingError,
   DatabaseError,
 } from "../utils/errors.js";
+import { connectRabbitMQ } from "../utils/rabbitmq.js";
 
 const validDeposits = [];
 const failedTransactions = [];
@@ -21,9 +22,57 @@ const failedTransactions = [];
  */
 export async function processTransactions(executionId) {
   const files = ["transactions-1.json", "transactions-2.json"];
+  const channel = await connectRabbitMQ();
+  const queue = "transactions";
 
-  // Procesar todos los archivos de forma concurrente
-  await Promise.all(files.map((file) => processFile(file, executionId)));
+  try {
+    await channel.assertQueue(queue, { durable: true });
+
+    for (const file of files) {
+      const data = await readJsonFile(file);
+      validateFileData(data, file);
+
+      const batchSize = 50; // Tamaño del lote
+      let batch = [];
+
+      for (const tx of data.transactions) {
+        batch.push({ tx, executionId });
+
+        // Enviar en lotes a RabbitMQ
+        if (batch.length >= batchSize) {
+          await sendBatchToQueue(channel, queue, batch);
+          batch = [];
+        }
+      }
+
+      // Enviar el resto si quedó un lote incompleto
+      if (batch.length > 0) {
+        await sendBatchToQueue(channel, queue, batch);
+      }
+
+    }
+  } catch (error) {
+    logger.error(`❌ Error al procesar transacciones: ${error.message}`);
+  } finally {
+    // Cerrar conexión a RabbitMQ
+    await channel.close();
+  }
+}
+
+/**
+ * Envía un lote de transacciones a la cola RabbitMQ.
+ */
+async function sendBatchToQueue(channel, queue, batch) {
+  try {
+    batch.forEach((msg) => {
+      channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)), {
+        persistent: true,
+      });
+    });
+  } catch (error) {
+    logger.error(`❌ Error al enviar lote a RabbitMQ: ${error.message}`);
+    throw new Error("Error al enviar transacciones a la cola.");
+  }
 }
 
 /**

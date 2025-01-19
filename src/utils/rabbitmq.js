@@ -10,9 +10,8 @@ export async function connectRabbitMQ() {
   if (connection) return channel;
 
   try {
-    connection = await amqp.connect('amqp://guest:guest@rabbitmq:5672');
+    connection = await amqp.connect('amqp://test:test@localhost');
     channel = await connection.createChannel();
-    console.log('✅ Conectado a RabbitMQ');
     return channel;
   } catch (error) {
     console.error('❌ Error al conectar a RabbitMQ:', error.message);
