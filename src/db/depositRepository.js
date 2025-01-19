@@ -1,5 +1,5 @@
 import db from "./connection.js";
-import { DatabaseError } from "../utils/errors.js";
+import { handleError } from "../utils/errorHandler.js";
 
 /**
  * Guarda una transacción fallida en la base de datos.
@@ -21,31 +21,40 @@ export async function saveFailedTransaction({
     const values = [executionId, txid, address, amount, confirmations, reason];
     await db.query(query, values);
   } catch (error) {
-    throw new DatabaseError(
-      `Error al registrar transacción fallida: ${error.message}`
-    );
+    handleError(error, "saveFailedTransaction");
   }
 }
 
 /**
- * Obtiene todos los depósitos válidos con el mínimo de confirmaciones.
+ * Obtiene todos los depósitos válidos con el mínimo de confirmaciones y opcionalmente para una ejecución específica.
  * @param {number} minConfirmations - Número mínimo de confirmaciones.
+ * @param {string} [executionId] - (Opcional) Identificador de la ejecución actual para filtrar los depósitos.
+ * @returns {Promise<Array<Object>>} - Lista de depósitos válidos.
  */
-export async function getAllValidDeposits(minConfirmations) {
+export async function getAllValidDeposits(minConfirmations, executionId = null) {
   try {
-    const query = `
+    let query = `
       SELECT txid, address, amount, confirmations
       FROM deposits
       WHERE confirmations >= $1
     `;
-    const { rows } = await db.query(query, [minConfirmations]);
+
+    const params = [minConfirmations];
+
+    // Agregar filtro por executionId si está disponible
+    if (executionId) {
+      query += " AND execution_id = $2";
+      params.push(executionId);
+    }
+
+    const { rows } = await db.query(query, params);
     return rows;
   } catch (error) {
-    throw new DatabaseError(
-      `Error al obtener depósitos válidos: ${error.message}`
-    );
+    handleError(error, "getAllValidDeposits");
+    throw error; // Re-lanzar el error para el manejo en niveles superiores
   }
 }
+
 
 /**
  * Guarda logs de la ejecución del proceso.
@@ -60,9 +69,7 @@ export async function saveExecutionLog({ executionId, logLevel, message }) {
     const values = [executionId, logLevel, message];
     await db.query(query, values);
   } catch (error) {
-    throw new DatabaseError(
-      `Error al guardar log de ejecución: ${error.message}`
-    );
+    handleError(error, "saveExecutionLog");
   }
 }
 
@@ -87,7 +94,11 @@ export async function saveValidDepositsInBatch(deposits, batchSize = 500) {
       ON CONFLICT (txid) DO NOTHING
     `;
 
-    await db.query(query);
+    try {
+      await db.query(query);
+    } catch (error) {
+      handleError(error, "saveValidDepositsInBatch");
+    }
   }
 }
 
@@ -109,7 +120,11 @@ export async function saveFailedTransactionsInBatch(transactions) {
     VALUES ${values}
   `;
 
-  await db.query(query);
+  try {
+    await db.query(query);
+  } catch (error) {
+    handleError(error, "saveFailedTransactionsInBatch");
+  }
 }
 
 export async function getExistingTxids(txids) {
@@ -118,6 +133,6 @@ export async function getExistingTxids(txids) {
     const { rows } = await db.query(query, [txids]);
     return rows;
   } catch (error) {
-    throw new DatabaseError(`Error al obtener txids existentes: ${error.message}`);
+    handleError(error, "getExistingTxids");
   }
 }

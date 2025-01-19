@@ -3,82 +3,109 @@ import {
   saveValidDepositsInBatch,
   saveFailedTransactionsInBatch,
   getAllValidDeposits,
-  getExistingTxids
+  getExistingTxids,
 } from "../db/depositRepository.js";
 import { MIN_CONFIRMATIONS, KNOWN_ADDRESSES } from "../config/index.js";
-import { logger } from "../utils/logger.js";
 import {
-  TransactionValidationError,
-  FileProcessingError,
-  DatabaseError,
-} from "../utils/errors.js";
+  validateTransaction,
+  getFailureReason,
+} from "../services/transactionHelpers.js";
+import { handleError } from "../utils/errorHandler.js";
 import db from "../db/connection.js";
 
 /**
  * Procesa todas las transacciones de los archivos JSON.
+ * @param {string} executionId - Identificador único para la ejecución actual.
+ * @returns {Promise<void>}
  */
 export async function processTransactions(executionId) {
   const files = ["transactions-1.json", "transactions-2.json"];
-  const seenTxids = new Set(); // Conjunto global de txids vistos en la ejecución actual
+  const seenTxids = new Set();
 
   try {
     for (const file of files) {
       await processFile(file, executionId, seenTxids);
     }
-    logger.info("✅ Procesamiento completado para todos los archivos.");
   } catch (error) {
-    logger.error(`❌ Error al procesar transacciones: ${error.message}`);
+    handleError(error, "processTransactions");
   }
 }
 
 /**
  * Procesa un archivo JSON de transacciones.
+ * @param {string} file - Nombre del archivo JSON a procesar.
+ * @param {string} executionId - Identificador único para la ejecución actual.
+ * @param {Set<string>} seenTxids - Conjunto de txids ya procesados.
+ * @returns {Promise<void>}
  */
 async function processFile(file, executionId, seenTxids) {
   try {
-    const data = await readJsonFile(file);
-    validateFileData(data, file);
-
-    // Extraer todos los txid del archivo actual
-    const fileTxids = data.transactions.map((tx) => tx.txid);
-
-    // Consultar cuáles de esos txid ya existen en la base de datos
-    const existingFromDB = await getExistingTxids(fileTxids);
-    existingFromDB.forEach((row) => seenTxids.add(row.txid));
-
+    const data = await readAndValidateFile(file);
+    const fileTxids = extractTxids(data.transactions);
+    await updateSeenTxidsFromDB(fileTxids, seenTxids);
     const { validDeposits, failedTransactions } = classifyTransactions(
       data.transactions,
       executionId,
       seenTxids
     );
-
-    // Inicia la transacción
-    await db.query("BEGIN");
-    try {
-      await saveValidDepositsInBatch(validDeposits);
-      await saveFailedTransactionsInBatch(failedTransactions);
-      await db.query("COMMIT"); // Confirma los cambios
-    } catch (error) {
-      await db.query("ROLLBACK"); // Revierte los cambios en caso de error
-      throw new DatabaseError(
-        `Error al guardar datos en la base: ${error.message}`
-      );
-    }
-
-    logger.info(
-      `✅ Procesamiento completado para archivo: ${file}. Válidas: ${validDeposits.length}, Fallidas: ${failedTransactions.length}`
-    );
+    await persistTransactions(validDeposits, failedTransactions);
   } catch (error) {
-    if (error instanceof FileProcessingError) {
-      logger.error(`❌ Error en archivo ${file}: ${error.message}`);
-    } else {
-      logger.error(`❌ Error inesperado en archivo ${file}: ${error.message}`);
-    }
+    handleError(error, `processFile: ${file}`);
+  }
+}
+/**
+ * Lee y valida el archivo JSON.
+ * @param {string} file - Nombre del archivo JSON.
+ * @returns {Promise<Object>} - Datos validados del archivo JSON.
+ * @throws {FileProcessingError} - Si el archivo tiene un formato inválido.
+ */
+async function readAndValidateFile(file) {
+  const data = await readJsonFile(file);
+  validateFileData(data, file);
+  return data;
+}
+/**
+ * Extrae los txids de una lista de transacciones.
+ * @param {Array<Object>} transactions - Lista de transacciones.
+ * @returns {Array<string>} - Lista de txids.
+ */
+function extractTxids(transactions) {
+  return transactions.map((tx) => tx.txid);
+}
+/**
+ * Actualiza el conjunto de txids vistos con los existentes en la base de datos.
+ * @param {Array<string>} fileTxids - Lista de txids del archivo actual.
+ * @param {Set<string>} seenTxids - Conjunto de txids ya procesados.
+ * @returns {Promise<void>}
+ */
+async function updateSeenTxidsFromDB(fileTxids, seenTxids) {
+  const existingFromDB = await getExistingTxids(fileTxids);
+  existingFromDB.forEach((row) => seenTxids.add(row.txid));
+}
+/**
+ * Persiste las transacciones válidas y fallidas en la base de datos.
+ * @param {Array<Object>} validDeposits - Lista de depósitos válidos.
+ * @param {Array<Object>} failedTransactions - Lista de transacciones fallidas.
+ * @returns {Promise<void>}
+ */
+async function persistTransactions(validDeposits, failedTransactions) {
+  await db.query("BEGIN");
+  try {
+    await saveValidDepositsInBatch(validDeposits);
+    await saveFailedTransactionsInBatch(failedTransactions);
+    await db.query("COMMIT");
+  } catch (error) {
+    await db.query("ROLLBACK");
+    handleError(error, "persistTransactions");
   }
 }
 
 /**
  * Clasifica transacciones en válidas y fallidas.
+ * @param {Array<Object>} transactions - Lista de transacciones.
+ * @param {string} executionId - Identificador único para la ejecución actual.
+ * @param {Set<string>} seenTxids - Conjunto de txids ya procesados.
+ * @returns {Object} - Contiene listas de depósitos válidos y transacciones fallidas.
  */
 function classifyTransactions(transactions, executionId, seenTxids) {
   const validDeposits = [];
@@ -97,12 +124,16 @@ function classifyTransactions(transactions, executionId, seenTxids) {
         continue;
       }
 
-      if (isValidDeposit(tx)) {
+      const failureReason = getFailureReason(tx);
+
+      if (failureReason === null) {
+        // Transacción válida
         validDeposits.push(formatValidDeposit(tx, executionId));
-        seenTxids.add(tx.txid);
+        seenTxids.add(tx.txid); // Marcar como procesada
       } else {
+        // Transacción inválida con una razón específica
         failedTransactions.push(
-          formatFailedTransaction(tx, executionId, "Condición inválida")
+          formatFailedTransaction(tx, executionId, failureReason)
         );
       }
     } catch (error) {
@@ -111,56 +142,30 @@ function classifyTransactions(transactions, executionId, seenTxids) {
           formatFailedTransaction(tx, executionId, error.message)
         );
       } else {
-        throw error;
+        handleError(error, "classifyTransactions");
       }
     }
   }
-
-  logger.info(
-    `Total procesadas: ${totalProcessed}, Válidas: ${validDeposits.length}, Fallidas: ${failedTransactions.length}`
-  );
 
   return { validDeposits, failedTransactions };
 }
 
 /**
  * Valida el formato de los datos del archivo.
+ * @param {Object} data - Datos del archivo JSON.
+ * @param {string} file - Nombre del archivo.
+ * @throws {FileProcessingError} - Si el formato es inválido.
  */
 function validateFileData(data, file) {
   if (!data?.transactions || !Array.isArray(data.transactions)) {
     throw new FileProcessingError(`Formato inválido en archivo: ${file}`);
   }
 }
-
-/**
- * Valida el formato de una transacción.
- */
-function validateTransaction(tx) {
-  if (
-    typeof tx?.txid !== "string" ||
-    typeof tx?.address !== "string" ||
-    typeof tx?.amount !== "number" ||
-    typeof tx?.confirmations !== "number"
-  ) {
-    throw new TransactionValidationError(
-      `Transacción inválida: ${JSON.stringify(tx)}`
-    );
-  }
-}
-
-/**
- * Determina si una transacción es un depósito válido.
- */
-function isValidDeposit(tx) {
-  return (
-    tx.category === "receive" &&
-    tx.amount > 0 &&
-    tx.confirmations >= MIN_CONFIRMATIONS
-  );
-}
-
 /**
  * Formatea una transacción válida.
+ * @param {Object} tx - Transacción a formatear.
+ * @param {string} executionId - Identificador único para la ejecución actual.
+ * @returns {Object} - Transacción válida formateada.
  */
 function formatValidDeposit(tx, executionId) {
   return {
@@ -174,6 +179,10 @@ function formatValidDeposit(tx, executionId) {
 
 /**
  * Formatea una transacción fallida.
+ * @param {Object} tx - Transacción a formatear.
+ * @param {string} executionId - Identificador único para la ejecución actual.
+ * @param {string} reason - Razón de la falla.
+ * @returns {Object} - Transacción fallida formateada.
  */
 function formatFailedTransaction(tx, executionId, reason) {
   return {
@@ -186,9 +195,13 @@ function formatFailedTransaction(tx, executionId, reason) {
   };
 }
 
-export async function aggregateValidDeposits() {
+/**
+ * Agrega estadísticas de depósitos válidos.
+ * @returns {Promise<Object>} - Contiene estadísticas y los depósitos más pequeños y más grandes.
+ */
+export async function aggregateValidDeposits(executionId) {
   try {
-    const deposits = await getAllValidDeposits(MIN_CONFIRMATIONS);
+    const deposits = await getAllValidDeposits(MIN_CONFIRMATIONS,executionId);
 
     const stats = {
       known: {},
@@ -224,9 +237,6 @@ export async function aggregateValidDeposits() {
 
     return { stats, smallest, largest };
   } catch (error) {
-    logger.error(`Error al agregar depósitos válidos: ${error.message}`);
-    throw new DatabaseError(
-      `Error en la agregación de datos: ${error.message}`
-    );
+    handleError(error, "aggregateValidDeposits");
   }
 }

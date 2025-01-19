@@ -7,8 +7,20 @@ import { saveExecutionLog } from "./db/depositRepository.js";
 import db from "./db/connection.js";
 import { v4 as uuidv4 } from 'uuid';
 
+/**
+ * Punto de entrada principal de la aplicación.
+ * 
+ * Este proceso:
+ * - Inicia un registro de ejecución.
+ * - Procesa transacciones desde archivos JSON.
+ * - Agrega estadísticas de depósitos válidos.
+ * - Registra información sobre depósitos procesados.
+ * - Finaliza cerrando la conexión a la base de datos.
+ * 
+ * @returns {Promise<void>} - Promesa que indica la finalización del proceso.
+ */
 async function main() {
-  const executionId = uuidv4();  // ID único por ejecución
+  const executionId = uuidv4(); 
 
   try {
     // Log de inicio de ejecución
@@ -27,7 +39,7 @@ async function main() {
     });
 
     // Agregar estadísticas de depósitos válidos
-    const { stats, smallest, largest } = await aggregateValidDeposits();
+    const { stats, smallest, largest } = await aggregateValidDeposits(executionId);
 
     const customers = [
       "Wesley Crusher",
