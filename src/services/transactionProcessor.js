@@ -29,46 +29,92 @@ export async function processTransactions(executionId) {
     await channel.assertQueue(queue, { durable: true });
 
     for (const file of files) {
+      logger.info(`📂 Procesando archivo: ${file}`);
       const data = await readJsonFile(file);
       validateFileData(data, file);
 
-      const batchSize = 50; // Tamaño del lote
+      // Procesar las transacciones en lotes
+      const batchSize = 50;
       let batch = [];
 
       for (const tx of data.transactions) {
-        batch.push({ tx, executionId });
+        try {
+          validateTransaction(tx);
 
-        // Enviar en lotes a RabbitMQ
+          if (isValidDeposit(tx)) {
+            validDeposits.push({
+              txid: tx.txid,
+              address: tx.address,
+              amount: tx.amount,
+              confirmations: tx.confirmations,
+              executionId,
+            });
+          } else {
+            failedTransactions.push({
+              executionId,
+              txid: tx.txid,
+              address: tx.address,
+              amount: tx.amount,
+              confirmations: tx.confirmations,
+              reason: getFailureReason(tx),
+            });
+          }
+        } catch (error) {
+          failedTransactions.push({
+            executionId,
+            txid: tx.txid || null,
+            address: tx.address || null,
+            amount: tx.amount || null,
+            confirmations: tx.confirmations || null,
+            reason: error.message,
+          });
+        }
+
+        // Manejo de lotes para RabbitMQ
+        batch.push({ tx, executionId });
         if (batch.length >= batchSize) {
           await sendBatchToQueue(channel, queue, batch);
           batch = [];
         }
       }
 
-      // Enviar el resto si quedó un lote incompleto
+      // Enviar cualquier lote restante
       if (batch.length > 0) {
         await sendBatchToQueue(channel, queue, batch);
       }
+    }
 
+    // Guardar depósitos y transacciones fallidas en la base de datos
+    if (validDeposits.length > 0) {
+      await saveValidDepositsInBatch(validDeposits);
+      logger.info(`💾 Guardados ${validDeposits.length} depósitos válidos.`);
+      validDeposits.length = 0; // Vaciar el arreglo
+    }
+
+    if (failedTransactions.length > 0) {
+      await saveFailedTransactionsInBatch(failedTransactions);
+      logger.info(`💾 Guardadas ${failedTransactions.length} transacciones fallidas.`);
+      failedTransactions.length = 0; // Vaciar el arreglo
     }
   } catch (error) {
     logger.error(`❌ Error al procesar transacciones: ${error.message}`);
   } finally {
-    // Cerrar conexión a RabbitMQ
     await channel.close();
   }
 }
+
 
 /**
  * Envía un lote de transacciones a la cola RabbitMQ.
  */
 async function sendBatchToQueue(channel, queue, batch) {
   try {
-    batch.forEach((msg) => {
+    for (const msg of batch) {
       channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)), {
         persistent: true,
       });
-    });
+    }
+    logger.info(`✅ Lote enviado a la cola (${batch.length} mensajes).`);
   } catch (error) {
     logger.error(`❌ Error al enviar lote a RabbitMQ: ${error.message}`);
     throw new Error("Error al enviar transacciones a la cola.");

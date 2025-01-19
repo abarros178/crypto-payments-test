@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   # ===========================
@@ -26,6 +26,21 @@ services:
       timeout: 5s
       retries: 5
 
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: test
+      RABBITMQ_DEFAULT_PASS: test
+    ports:
+      - "5672:5672" # RabbitMQ messaging port
+      - "15672:15672" # RabbitMQ management web interface
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics -q ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   # ===========================
   # pgAdmin (DB Management)
@@ -43,7 +58,6 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
 
-
   # ===========================
   # Node.js Application
   # ===========================
@@ -56,6 +70,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      rabbitmq:
+        condition: service_healthy 
     environment:
       NODE_ENV: production
       POSTGRES_HOST: postgres
@@ -63,6 +79,10 @@ services:
       POSTGRES_USER_FILE: /run/secrets/postgres_user
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_DB: crypto_db
+      RABBITMQ_HOST: rabbitmq # asumiendo que configuras un servicio RabbitMQ
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: test
+      RABBITMQ_PASS: test
     ports:
       - "3000:3000"
     secrets:
@@ -71,6 +91,38 @@ services:
     volumes:
       - ./data:/app/data
     entrypoint: ["/bin/sh", "/usr/local/bin/docker-entrypoint.sh"]
+
+  # ===========================
+  # Worker (RabbitMQ Consumer)
+  # ===========================
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crypto-payments-worker
+    restart: on-failure
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy 
+    environment:
+      NODE_ENV: production
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER_FILE: /run/secrets/postgres_user
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_DB: crypto_db
+      RABBITMQ_HOST: rabbitmq # asumiendo que configuras un servicio RabbitMQ
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: test
+      RABBITMQ_PASS: test
+    secrets:
+      - postgres_user
+      - postgres_password
+    volumes:
+      - ./data:/app/data
+    entrypoint: ["node", "src/worker.js"]
 
 volumes:
   postgres_data:
