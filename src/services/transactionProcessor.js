@@ -6,26 +6,41 @@ import {
   getExistingTxids,
 } from "../db/depositRepository.js";
 import { MIN_CONFIRMATIONS, KNOWN_ADDRESSES } from "../config/index.js";
-import {
-  validateTransaction,
-  getFailureReason,
-} from "../services/transactionHelpers.js";
 import { handleError } from "../utils/errorHandler.js";
 import db from "../db/connection.js";
+import { connectRabbitMQ } from "../utils/rabbitmq.js";
 
 /**
- * Procesa todas las transacciones de los archivos JSON.
- * @param {string} executionId - Identificador único para la ejecución actual.
- * @returns {Promise<void>}
+ * Procesa todas las transacciones de los archivos JSON,
+ * pero ahora en vez de guardarlas directamente, las encolamos en RabbitMQ.
+ *
+ * @param {string} executionId
  */
 export async function processTransactions(executionId) {
   const files = ["transactions-1.json", "transactions-2.json"];
-  const seenTxids = new Set();
-
   try {
+    // Crea o reutiliza un canal de RabbitMQ
+    const channel = await connectRabbitMQ();
+    await channel.assertQueue("transactionsQueue", { durable: true });
+
+    // Procesa los dos archivos
     for (const file of files) {
-      await processFile(file, executionId, seenTxids);
+      const data = await readAndValidateFile(file);
+      // Asumiendo que el JSON tiene una propiedad "transactions"
+      for (const tx of data.transactions) {
+        // Enviar cada transacción como mensaje a la cola
+        channel.sendToQueue(
+          "transactionsQueue",
+          Buffer.from(JSON.stringify({ tx, executionId }))
+        );
+      }
     }
+
+    // Enviar un mensaje de control al final
+    channel.sendToQueue(
+      "transactionsQueue",
+      Buffer.from(JSON.stringify({ control: true, executionId }))
+    );
   } catch (error) {
     handleError(error, "processTransactions");
   }
@@ -64,14 +79,7 @@ async function readAndValidateFile(file) {
   validateFileData(data, file);
   return data;
 }
-/**
- * Extrae los txids de una lista de transacciones.
- * @param {Array<Object>} transactions - Lista de transacciones.
- * @returns {Array<string>} - Lista de txids.
- */
-function extractTxids(transactions) {
-  return transactions.map((tx) => tx.txid);
-}
+
 /**
  * Actualiza el conjunto de txids vistos con los existentes en la base de datos.
  * @param {Array<string>} fileTxids - Lista de txids del archivo actual.
@@ -101,56 +109,6 @@ async function persistTransactions(validDeposits, failedTransactions) {
 }
 
 /**
- * Clasifica transacciones en válidas y fallidas.
- * @param {Array<Object>} transactions - Lista de transacciones.
- * @param {string} executionId - Identificador único para la ejecución actual.
- * @param {Set<string>} seenTxids - Conjunto de txids ya procesados.
- * @returns {Object} - Contiene listas de depósitos válidos y transacciones fallidas.
- */
-function classifyTransactions(transactions, executionId, seenTxids) {
-  const validDeposits = [];
-  const failedTransactions = [];
-  let totalProcessed = 0;
-
-  for (const tx of transactions) {
-    totalProcessed++;
-    try {
-      validateTransaction(tx);
-
-      if (seenTxids.has(tx.txid)) {
-        failedTransactions.push(
-          formatFailedTransaction(tx, executionId, "Transacción duplicada")
-        );
-        continue;
-      }
-
-      const failureReason = getFailureReason(tx);
-
-      if (failureReason === null) {
-        // Transacción válida
-        validDeposits.push(formatValidDeposit(tx, executionId));
-        seenTxids.add(tx.txid); // Marcar como procesada
-      } else {
-        // Transacción inválida con una razón específica
-        failedTransactions.push(
-          formatFailedTransaction(tx, executionId, failureReason)
-        );
-      }
-    } catch (error) {
-      if (error instanceof TransactionValidationError) {
-        failedTransactions.push(
-          formatFailedTransaction(tx, executionId, error.message)
-        );
-      } else {
-        handleError(error, "classifyTransactions");
-      }
-    }
-  }
-
-  return { validDeposits, failedTransactions };
-}
-
-/**
  * Valida el formato de los datos del archivo.
  * @param {Object} data - Datos del archivo JSON.
  * @param {string} file - Nombre del archivo.
@@ -162,46 +120,12 @@ function validateFileData(data, file) {
   }
 }
 /**
- * Formatea una transacción válida.
- * @param {Object} tx - Transacción a formatear.
- * @param {string} executionId - Identificador único para la ejecución actual.
- * @returns {Object} - Transacción válida formateada.
- */
-function formatValidDeposit(tx, executionId) {
-  return {
-    txid: tx.txid,
-    address: tx.address,
-    amount: tx.amount,
-    confirmations: tx.confirmations,
-    executionId,
-  };
-}
-
-/**
- * Formatea una transacción fallida.
- * @param {Object} tx - Transacción a formatear.
- * @param {string} executionId - Identificador único para la ejecución actual.
- * @param {string} reason - Razón de la falla.
- * @returns {Object} - Transacción fallida formateada.
- */
-function formatFailedTransaction(tx, executionId, reason) {
-  return {
-    executionId,
-    txid: tx.txid || null,
-    address: tx.address || null,
-    amount: tx.amount || null,
-    confirmations: tx.confirmations || null,
-    reason,
-  };
-}
-
-/**
  * Agrega estadísticas de depósitos válidos.
  * @returns {Promise<Object>} - Contiene estadísticas y los depósitos más pequeños y más grandes.
  */
 export async function aggregateValidDeposits(executionId) {
   try {
-    const deposits = await getAllValidDeposits(MIN_CONFIRMATIONS,executionId);
+    const deposits = await getAllValidDeposits(MIN_CONFIRMATIONS, executionId);
 
     const stats = {
       known: {},

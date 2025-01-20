@@ -1,0 +1,627 @@
+[2025-01-20T18:47:39.005Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.007Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.007Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.011Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.011Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.012Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.012Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.013Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.013Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.014Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.014Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.016Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.017Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.017Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.018Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.019Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.019Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.021Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.021Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.023Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.023Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.024Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.024Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.025Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.025Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.026Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.026Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.027Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.027Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.028Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.028Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.029Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.029Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.030Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.030Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.031Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.031Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.032Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.032Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.033Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.033Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.034Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.034Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.034Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.034Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.035Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.035Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.037Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.037Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.038Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.038Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.039Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.039Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.040Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.040Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.041Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.041Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.041Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.041Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.043Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.043Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.044Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.044Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.045Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.045Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.046Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.046Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.046Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.046Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.047Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.047Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.048Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.048Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.049Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.050Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.051Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.051Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.052Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.052Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.053Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.053Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.054Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.054Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.055Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.055Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.056Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.056Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.058Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.058Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.059Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.059Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.060Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.060Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.060Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.061Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.061Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.061Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.062Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.062Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.063Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.063Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.065Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.065Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.066Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.066Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.067Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.067Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.068Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.068Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.068Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.069Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.069Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.069Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.071Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.071Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.072Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.072Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.073Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.073Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.074Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.074Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.075Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.075Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.076Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.076Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.076Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.077Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.078Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.078Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.079Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.079Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.080Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.080Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.081Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.081Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.082Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.082Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.083Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.083Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.083Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.084Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.085Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.085Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.086Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.086Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.087Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.087Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.088Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.088Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.089Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.089Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.089Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.089Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.090Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.090Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.091Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.092Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.092Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.093Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.093Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.093Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.094Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.094Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.095Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.095Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.096Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.096Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.097Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.097Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.098Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.098Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.099Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.100Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.100Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.100Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.101Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.101Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.102Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.103Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.103Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.103Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.104Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.104Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.106Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.106Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.107Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.107Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.108Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.108Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.109Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.109Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.110Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.110Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.111Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.111Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.112Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.112Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.113Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.114Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.114Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.115Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.116Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.116Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.116Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.116Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.117Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.117Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.118Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.118Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.119Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.119Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.120Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.120Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.121Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.121Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.122Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.122Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.123Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.123Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.124Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.124Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.125Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.125Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.125Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.126Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.128Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.128Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.129Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.129Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.130Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.130Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.131Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.131Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.131Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.132Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.132Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.133Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.134Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.134Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.135Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.135Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.136Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.136Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.137Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.137Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.137Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.138Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.138Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.138Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.139Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.139Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.141Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.141Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.142Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.142Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.143Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.143Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.144Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.144Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.145Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.145Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.146Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.146Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.147Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.148Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.148Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.149Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.149Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.149Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.150Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.150Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.151Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.151Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.152Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.152Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.153Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.153Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.154Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.154Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.155Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.155Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.156Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.156Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.157Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.157Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.158Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.158Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.159Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.159Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.160Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.160Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.161Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.161Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.163Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.163Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.164Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.164Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.164Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.165Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.165Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.165Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.166Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.166Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.167Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.167Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.168Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.168Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.169Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.169Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.170Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.170Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.171Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.171Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.172Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.172Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.173Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.173Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.174Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.174Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.175Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.176Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.176Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.176Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.177Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.177Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.178Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.178Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.179Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.179Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.180Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.180Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.180Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.181Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.181Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.182Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.183Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.183Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.183Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.184Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.184Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.184Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.185Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.185Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.186Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.186Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.186Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.187Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.187Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.187Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.188Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.189Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.190Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.190Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.191Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.191Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.192Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.192Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.193Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.193Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.194Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.194Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.194Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.195Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.196Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.196Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.197Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.197Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.198Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.198Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.199Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.199Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.200Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.200Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.201Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.201Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.202Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.202Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.203Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.203Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.204Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.204Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.205Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.205Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.206Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.206Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.207Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.207Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.208Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.208Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.209Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.209Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.211Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.211Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.212Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.212Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.213Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.213Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.214Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.214Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.215Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.215Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.216Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.216Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.218Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.218Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.219Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.219Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.220Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.220Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.220Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.221Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.221Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.221Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.222Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.222Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.223Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.223Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.224Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.224Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.225Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.225Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.226Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.226Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.227Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.227Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.228Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.228Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.228Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.229Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.229Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.229Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.231Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.231Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.232Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.232Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.233Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.233Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.234Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.234Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.235Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.235Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.235Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.236Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.236Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.236Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.239Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.239Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.240Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.240Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.241Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.241Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.241Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.241Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.242Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.242Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.243Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.243Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.244Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.244Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.245Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.245Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.246Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.247Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.247Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.247Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.248Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.248Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.249Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.249Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.250Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.250Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.251Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.252Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.253Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.253Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.254Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.254Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.255Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.255Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.256Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.256Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.257Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.257Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.259Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.260Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.260Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.261Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.261Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.261Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.262Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.262Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.263Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.263Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.263Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.264Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.264Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.264Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.266Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.266Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.267Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.267Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.268Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.268Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.269Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.269Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.269Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.269Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.270Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.270Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.271Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.271Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.272Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.272Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.273Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.273Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.274Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.274Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.275Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.275Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.276Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.276Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.276Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.276Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.277Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.277Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.278Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.278Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.279Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.279Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.280Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.280Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.281Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.281Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.282Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.282Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.283Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.283Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.284Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.284Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.285Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.285Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.286Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.286Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.287Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.287Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.288Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.288Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.289Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.289Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.289Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.289Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.291Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.291Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.291Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.291Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.292Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.292Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.294Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.294Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.295Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.295Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.295Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.296Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.296Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.296Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.297Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.297Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.298Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.298Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.299Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.299Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.300Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.300Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.301Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.301Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.302Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.302Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.302Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.303Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.303Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.303Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.304Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.304Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.305Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.305Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.305Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.305Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.308Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.308Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.309Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.309Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.309Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.310Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.310Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.311Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.312Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.312Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.312Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.312Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.313Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.314Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.315Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.315Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.316Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.316Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.317Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.317Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.318Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.318Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.319Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.319Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.319Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.320Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.321Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.321Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.327Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.327Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.329Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.329Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.330Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.330Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.331Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.331Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.332Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.332Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.333Z] ERROR: ❌ [UnexpectedError] (PostgreSQL Query): Cannot use a pool after calling end on the pool
+[2025-01-20T18:47:39.334Z] ERROR: ❌ [UnexpectedError] (getExistingTxids): Cannot use a pool after calling end on the pool

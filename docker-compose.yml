@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   # ===========================
@@ -26,7 +26,6 @@ services:
       timeout: 5s
       retries: 5
 
-
   # ===========================
   # pgAdmin (DB Management)
   # ===========================
@@ -41,8 +40,21 @@ services:
         condition: service_healthy
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DEFAULT_PASSWORD:
+        ${PGADMIN_DEFAULT_PASSWORD}
 
+  # ===========================
+  # RabbitMQ
+  # ===========================
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: test
+    ports:
+      - "5672:5672"
+      - "15672:15672" # Consola web de RabbitMQ
 
   # ===========================
   # Node.js Application
@@ -63,6 +75,10 @@ services:
       POSTGRES_USER_FILE: /run/secrets/postgres_user
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_DB: crypto_db
+      RABBITMQ_USER: guest
+      RABBITMQ_PASSWORD: test
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
     ports:
       - "3000:3000"
     secrets:

@@ -2,18 +2,27 @@ import db from "./db/connection.js";
 import { processTransactions, aggregateValidDeposits } from "./services/transactionProcessor.js";
 import { createExecutionLogger } from "./utils/logger.js";
 import { v4 as uuidv4 } from "uuid";
+import { startTransactionConsumer } from "./consumers/transactionConsumer.js";
+import { waitForQueueEmpty } from "./utils/waitForQueueEmpty.js";
 
 async function main() {
   const executionId = uuidv4();
   const logger = createExecutionLogger(executionId); // Logger contextualizado con el Execution ID
 
   try {
+
+     // Iniciar consumer y obtener promesa de finalización
+    const consumerDonePromise = startTransactionConsumer();
     // Log de inicio de ejecución (solo en logs, no en consola)
     await logger.info(`Ejecución ${executionId} iniciada.`);
 
     // Procesar transacciones
     await processTransactions(executionId);
     await logger.info(`Procesamiento de transacciones completado.`);
+
+    // Esperar a que el consumer reciba y procese el mensaje de control
+    await consumerDonePromise;
+    console.log("✅ [Main] Consumer notifica que todos los mensajes han sido procesados.");
 
     // Agregar estadísticas de depósitos válidos
     const { stats, smallest, largest } = await aggregateValidDeposits(executionId);
