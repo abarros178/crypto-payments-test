@@ -5,10 +5,8 @@ import {
   getExistingTxids,
 } from "../db/depositRepository.js";
 import db from "../db/connection.js";
-import {
-  TransactionValidationError,
-} from "../utils/errors.js";
-
+import { TransactionValidationError } from "../utils/errors.js";
+import { handleError } from "../utils/errorHandler.js";
 
 /**
  * Valida el formato de una transacción.
@@ -54,7 +52,6 @@ export function getFailureReason(tx) {
     return "Confirmaciones insuficientes";
   return null; // Es válida
 }
-
 
 /**
  * Actualiza el conjunto de txids vistos con los existentes en la base de datos.
@@ -116,7 +113,6 @@ export function classifyTransactions(transactions, executionId, seenTxids) {
 
   return { validDeposits, failedTransactions };
 }
-
 
 /**
  * Persiste las transacciones válidas y fallidas en la base de datos.

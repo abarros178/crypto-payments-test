@@ -11,41 +11,55 @@ import db from "../db/connection.js";
 import { connectRabbitMQ } from "../utils/rabbitmq.js";
 
 /**
- * Procesa todas las transacciones de los archivos JSON,
- * pero ahora en vez de guardarlas directamente, las encolamos en RabbitMQ.
+ * Procesa todas las transacciones de los archivos JSON y las encola en RabbitMQ en lugar de guardarlas directamente.
+ * 
+ * Este método lee transacciones de archivos JSON, las valida y las publica en el exchange `main_exchange` de RabbitMQ.
+ * Al final del proceso, envía un mensaje de control para indicar que todas las transacciones han sido encoladas.
  *
- * @param {string} executionId
+ * @async
+ * @function processTransactions
+ * @param {string} executionId - Identificador único de la ejecución actual para rastrear transacciones y su contexto.
+ * @returns {Promise<void>} Resuelve cuando todas las transacciones han sido procesadas y encoladas correctamente.
+ * @throws {Error} Lanza un error si ocurre algún problema al leer los archivos, validar las transacciones o interactuar con RabbitMQ.
+ *
+ * @requires ../utils/rabbitmq
+ * @requires ../services/transactionHelpers
+ * @requires ../utils/fileReader
+ * @requires ../utils/errorHandler
  */
 export async function processTransactions(executionId) {
   const files = ["transactions-1.json", "transactions-2.json"];
   try {
     // Crea o reutiliza un canal de RabbitMQ
     const channel = await connectRabbitMQ();
-    await channel.assertQueue("transactionsQueue", { durable: true });
 
-    // Procesa los dos archivos
+    const mainExchange = "main_exchange";
+
+    await channel.assertExchange(mainExchange, "direct", { durable: true });
+
     for (const file of files) {
       const data = await readAndValidateFile(file);
-      // Asumiendo que el JSON tiene una propiedad "transactions"
       for (const tx of data.transactions) {
-        // Enviar cada transacción como mensaje a la cola
-        channel.sendToQueue(
-          "transactionsQueue",
-          Buffer.from(JSON.stringify({ tx, executionId }))
+        channel.publish(
+          mainExchange,
+          "transaction",
+          Buffer.from(JSON.stringify({ tx, executionId })),
+          { persistent: true }
         );
       }
     }
 
-    // Enviar un mensaje de control al final
-    channel.sendToQueue(
-      "transactionsQueue",
-      Buffer.from(JSON.stringify({ control: true, executionId }))
+    // Enviar un mensaje de control al final a través del exchange
+    channel.publish(
+      mainExchange,
+      "transaction",
+      Buffer.from(JSON.stringify({ control: true, executionId })),
+      { persistent: true }
     );
   } catch (error) {
     handleError(error, "processTransactions");
   }
 }
-
 /**
  * Procesa un archivo JSON de transacciones.
  * @param {string} file - Nombre del archivo JSON a procesar.

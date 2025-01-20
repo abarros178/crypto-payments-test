@@ -1,17 +1,18 @@
 import db from "./db/connection.js";
-import { processTransactions, aggregateValidDeposits } from "./services/transactionProcessor.js";
+import {
+  processTransactions,
+  aggregateValidDeposits,
+} from "./services/transactionProcessor.js";
 import { createExecutionLogger } from "./utils/logger.js";
 import { v4 as uuidv4 } from "uuid";
 import { startTransactionConsumer } from "./consumers/transactionConsumer.js";
-import { waitForQueueEmpty } from "./utils/waitForQueueEmpty.js";
 
 async function main() {
   const executionId = uuidv4();
   const logger = createExecutionLogger(executionId); // Logger contextualizado con el Execution ID
 
   try {
-
-     // Iniciar consumer y obtener promesa de finalización
+    // Iniciar consumer y obtener promesa de finalización
     const consumerDonePromise = startTransactionConsumer();
     // Log de inicio de ejecución (solo en logs, no en consola)
     await logger.info(`Ejecución ${executionId} iniciada.`);
@@ -22,10 +23,11 @@ async function main() {
 
     // Esperar a que el consumer reciba y procese el mensaje de control
     await consumerDonePromise;
-    console.log("✅ [Main] Consumer notifica que todos los mensajes han sido procesados.");
 
     // Agregar estadísticas de depósitos válidos
-    const { stats, smallest, largest } = await aggregateValidDeposits(executionId);
+    const { stats, smallest, largest } = await aggregateValidDeposits(
+      executionId
+    );
 
     const customers = [
       "Wesley Crusher",
@@ -40,14 +42,21 @@ async function main() {
     // Solo imprimir resultados específicos en consola
     for (const name of customers) {
       const { count, sum } = stats.known[name] || { count: 0, sum: 0.0 };
-      const message = `Deposited for ${name}: count=${count} sum=${sum.toFixed(8)}`;
+      const message = `Deposited for ${name}: count=${count} sum=${sum.toFixed(
+        8
+      )}`;
       await logger.info(message, true); // Imprime en consola
       await logger.info(message); // También guarda en los logs
     }
 
     // Registro de depósitos sin referencia en consola
-    const { count: unknownCount, sum: unknownSum } = stats.unknown || { count: 0, sum: 0.0 };
-    const unknownMessage = `Deposited without reference: count=${unknownCount} sum=${unknownSum.toFixed(8)}`;
+    const { count: unknownCount, sum: unknownSum } = stats.unknown || {
+      count: 0,
+      sum: 0.0,
+    };
+    const unknownMessage = `Deposited without reference: count=${unknownCount} sum=${unknownSum.toFixed(
+      8
+    )}`;
     await logger.info(unknownMessage, true); // Imprime en consola
     await logger.info(unknownMessage); // También guarda en los logs
 
@@ -63,11 +72,32 @@ async function main() {
     await logger.info(`Ejecución ${executionId} finalizada correctamente.`);
 
     // Cerrar conexión a la base de datos
-    await db.pool.end();
   } catch (error) {
-    // Registrar error en logger y base de datos (solo en logs)
     await logger.error(`Error durante la ejecución: ${error.message}`);
     process.exit(1);
+  } finally {
+    // Asegura el cierre de recursos, incluso si hubo errores
+    try {
+      // Intentar cerrar RabbitMQ
+      try {
+        await closeRabbitMQ();
+      } catch (rabbitError) {
+        await logger.error(`Error al cerrar RabbitMQ: ${rabbitError.message}`);
+      }
+
+      // Intentar cerrar el pool de la base de datos
+      try {
+        await db.pool.end();
+      } catch (dbError) {
+        await logger.error(
+          `Error al cerrar la base de datos: ${dbError.message}`
+        );
+      }
+    } catch (finalError) {
+      await logger.error(
+        `Error inesperado durante el cierre de recursos: ${finalError.message}`
+      );
+    }
   }
 }
 

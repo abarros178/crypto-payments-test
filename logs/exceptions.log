@@ -1,0 +1,32 @@
+[2025-01-20T19:05:41.576Z] ERROR: uncaughtException: Channel closed by server: 406 (PRECONDITION-FAILED) with message "PRECONDITION_FAILED - inequivalent arg 'x-dead-letter-exchange' for queue 'transactionsQueue' in vhost '/': received the value 'dead_letter_exchange' of type 'longstr' but current is none"
+Error: Channel closed by server: 406 (PRECONDITION-FAILED) with message "PRECONDITION_FAILED - inequivalent arg 'x-dead-letter-exchange' for queue 'transactionsQueue' in vhost '/': received the value 'dead_letter_exchange' of type 'longstr' but current is none"
+    at Channel.accept (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\channel.js:320:19)
+    at Connection.mainAccept [as accept] (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\connection.js:579:33)
+    at Socket.go (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\connection.js:431:16)
+    at Socket.emit (node:events:519:28)
+    at emitReadable_ (node:internal/streams/readable:832:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+[2025-01-20T19:14:14.215Z] ERROR: uncaughtException: Channel closed by server: 406 (PRECONDITION-FAILED) with message "PRECONDITION_FAILED - inequivalent arg 'x-dead-letter-exchange' for queue 'transactionsQueue' in vhost '/': received none but current is the value 'dead_letter_exchange' of type 'longstr'"
+Error: Channel closed by server: 406 (PRECONDITION-FAILED) with message "PRECONDITION_FAILED - inequivalent arg 'x-dead-letter-exchange' for queue 'transactionsQueue' in vhost '/': received none but current is the value 'dead_letter_exchange' of type 'longstr'"
+    at Channel.accept (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\channel.js:320:19)
+    at Connection.mainAccept [as accept] (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\connection.js:579:33)
+    at Socket.go (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\connection.js:431:16)
+    at Socket.emit (node:events:519:28)
+    at emitReadable_ (node:internal/streams/readable:832:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+[2025-01-20T19:14:34.473Z] ERROR: uncaughtException: Channel closed by server: 406 (PRECONDITION-FAILED) with message "PRECONDITION_FAILED - inequivalent arg 'x-dead-letter-exchange' for queue 'transactionsQueue' in vhost '/': received none but current is the value 'dead_letter_exchange' of type 'longstr'"
+Error: Channel closed by server: 406 (PRECONDITION-FAILED) with message "PRECONDITION_FAILED - inequivalent arg 'x-dead-letter-exchange' for queue 'transactionsQueue' in vhost '/': received none but current is the value 'dead_letter_exchange' of type 'longstr'"
+    at Channel.accept (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\channel.js:320:19)
+    at Connection.mainAccept [as accept] (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\connection.js:579:33)
+    at Socket.go (C:\Users\Andres\Documents\crypto-payments-test\node_modules\amqplib\lib\connection.js:431:16)
+    at Socket.emit (node:events:519:28)
+    at emitReadable_ (node:internal/streams/readable:832:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+[2025-01-20T20:34:49.209Z] ERROR: uncaughtException: logger is not defined
+ReferenceError: logger is not defined
+    at file:///C:/Users/Andres/Documents/crypto-payments-test/src/consumers/transactionConsumer.js:105:5
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-01-20T20:34:51.090Z] ERROR: uncaughtException: logger is not defined
+ReferenceError: logger is not defined
+    at file:///C:/Users/Andres/Documents/crypto-payments-test/src/consumers/transactionConsumer.js:105:8
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

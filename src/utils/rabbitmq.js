@@ -11,8 +11,12 @@ const {
   RABBITMQ_PORT = '5672',
 } = process.env;
 
-const RABBITMQ_URL = `amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@${RABBITMQ_HOST}:${RABBITMQ_PORT}`;
+if (!RABBITMQ_USER || !RABBITMQ_PASSWORD || !RABBITMQ_HOST || !RABBITMQ_PORT) {
+  console.error("❌ [Config] Variables de entorno de RabbitMQ incompletas.");
+  process.exit(1);
+}
 
+const RABBITMQ_URL = `amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@${RABBITMQ_HOST}:${RABBITMQ_PORT}`;
 /**
  * Conecta a RabbitMQ y retorna un canal, con reintentos en caso de fallo.
  * @param {number} maxRetries - Número máximo de reintentos.
