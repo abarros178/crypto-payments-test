@@ -5,10 +5,10 @@ let connection = null;
 let channel = null;
 
 const {
-  RABBITMQ_USER = 'guest',
-  RABBITMQ_PASSWORD = 'test',
-  RABBITMQ_HOST = 'localhost',
-  RABBITMQ_PORT = '5672',
+  RABBITMQ_USER,
+  RABBITMQ_PASSWORD,
+  RABBITMQ_HOST,
+  RABBITMQ_PORT,
 } = process.env;
 
 if (!RABBITMQ_USER || !RABBITMQ_PASSWORD || !RABBITMQ_HOST || !RABBITMQ_PORT) {

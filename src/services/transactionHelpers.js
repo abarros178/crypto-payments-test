@@ -121,13 +121,10 @@ export function classifyTransactions(transactions, executionId, seenTxids) {
  * @returns {Promise<void>}
  */
 export async function persistTransactions(validDeposits, failedTransactions) {
-  await db.query("BEGIN");
   try {
     await saveValidDepositsInBatch(validDeposits);
     await saveFailedTransactionsInBatch(failedTransactions);
-    await db.query("COMMIT");
   } catch (error) {
-    await db.query("ROLLBACK");
     handleError(error, "persistTransactions");
   }
 }

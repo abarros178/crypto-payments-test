@@ -1,6 +1,6 @@
 import db from "./connection.js";
 import { handleError } from "../utils/errorHandler.js";
-
+const BATCH_SIZE = 20;
 /**
  * Guarda una transacción fallida en la base de datos.
  * @param {Object} transaction - Detalles de la transacción fallida.
@@ -108,20 +108,27 @@ export async function saveValidDepositsInBatch(deposits, batchSize = 500) {
 export async function saveFailedTransactionsInBatch(transactions) {
   if (transactions.length === 0) return;
 
-  const values = transactions
-    .map(
-      ({ executionId, txid, address, amount, confirmations, reason }) =>
-        `('${executionId}', '${txid}', '${address}', ${amount}, ${confirmations}, '${reason}')`
-    )
-    .join(", ");
-
-  const query = `
-    INSERT INTO failed_transactions (execution_id, txid, address, amount, confirmations, reason)
-    VALUES ${values}
-  `;
-
   try {
-    await db.query(query);
+    for (let i = 0; i < transactions.length; i += BATCH_SIZE) {
+      const chunk = transactions.slice(i, i + BATCH_SIZE);
+
+      const values = chunk
+        .map(
+          ({ executionId, txid, address, amount, confirmations, reason }) =>
+            `('${executionId}', '${txid}', '${address}', ${amount}, ${confirmations}, '${reason.replace(
+              /'/g,
+              "''"
+            )}')` // Sanitiza datos
+        )
+        .join(", ");
+
+      const query = `
+        INSERT INTO failed_transactions (execution_id, txid, address, amount, confirmations, reason)
+        VALUES ${values}
+      `;
+
+      await db.query(query);
+    }
   } catch (error) {
     handleError(error, "saveFailedTransactionsInBatch");
   }

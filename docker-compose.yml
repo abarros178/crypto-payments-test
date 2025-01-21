@@ -21,7 +21,11 @@ services:
     ports:
       - "5433:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -h localhost -p 5432 -U $(cat /run/secrets/postgres_user) -d crypto_db",
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -40,21 +44,32 @@ services:
         condition: service_healthy
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD:
-        ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
 
   # ===========================
   # RabbitMQ
   # ===========================
   rabbitmq:
-    image: rabbitmq:3-management
+    image: rabbitmq:3-management-alpine
     container_name: rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: test
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: "-rabbitmq -setcookie mycookie"
     ports:
       - "5672:5672"
-      - "15672:15672" # Consola web de RabbitMQ
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics -q ping --erlang-cookie mycookie"]
+      interval: 20s
+      timeout: 10s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
   # ===========================
   # Node.js Application
@@ -67,6 +82,8 @@ services:
     restart: on-failure
     depends_on:
       postgres:
+        condition: service_healthy
+      rabbitmq:
         condition: service_healthy
     environment:
       NODE_ENV: production
@@ -88,6 +105,16 @@ services:
       - ./data:/app/data
       - ./logs:/app/logs
     entrypoint: ["/bin/sh", "/usr/local/bin/docker-entrypoint.sh"]
+    links:
+      - rabbitmq
+    deploy:
+      resources:
+        limits:
+          cpus: '2'         # Limita el uso de CPU a 2 núcleos
+          memory: 1G        # Limita el uso de memoria a 1 GB
+        reservations:
+          cpus: '1.0'       # Reserva al menos 1 núcleo de CPU
+          memory: 512M      # Reserva al menos 512 MB de memoria
 
 volumes:
   postgres_data:

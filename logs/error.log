@@ -4002,3 +4002,12 @@
 [2025-01-20T20:42:13.523Z] ERROR: [Execution ID: 33475975-4b54-44d4-b3f0-4e17163f3dd0] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
 [2025-01-20T20:46:03.735Z] ERROR: [Execution ID: 0c4202ec-98e2-401e-b925-bbe6981ed4f4] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
 [2025-01-20T20:55:50.312Z] ERROR: [Execution ID: 3283ce68-6842-459a-9a95-ad1eeaf91346] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T21:55:10.408Z] ERROR: [Execution ID: 5b9e7533-aa7b-4dc4-a031-1ef22d296d44] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T21:59:19.628Z] ERROR: [Execution ID: d6eb632f-fd8e-4b1f-9d6a-18a3e39954b3] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T22:07:38.103Z] ERROR: [Execution ID: 852c0a29-fe04-4e04-b391-a95ee1cf67a5] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T22:21:12.814Z] ERROR: [Execution ID: 045d0e8b-a15f-41ab-8203-34ef03413601] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T22:22:03.735Z] ERROR: [Execution ID: ea81f8df-8410-43eb-9461-bece4640a1a4] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T22:39:48.889Z] ERROR: [Execution ID: b09b672c-f214-4636-9157-586f522f227b] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T22:41:01.994Z] ERROR: [Execution ID: c10ee369-5d76-46f7-8e3b-e11613c2ab51] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T22:55:14.845Z] ERROR: [Execution ID: 035f8eca-51a3-41e5-a493-5bf70be073e5] Error al cerrar RabbitMQ: closeRabbitMQ is not defined
+[2025-01-20T22:57:48.721Z] ERROR: [Execution ID: 4d7cf77e-59a8-498b-acac-3e60f58dfb61] Error al cerrar RabbitMQ: closeRabbitMQ is not defined

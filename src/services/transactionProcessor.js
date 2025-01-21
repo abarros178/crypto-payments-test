@@ -30,36 +30,48 @@ import { connectRabbitMQ } from "../utils/rabbitmq.js";
 export async function processTransactions(executionId) {
   const files = ["transactions-1.json", "transactions-2.json"];
   try {
+    console.log(`[processTransactions] Inicio del procesamiento con executionId: ${executionId}`);
+
     // Crea o reutiliza un canal de RabbitMQ
+    console.log("[processTransactions] Conectando a RabbitMQ...");
     const channel = await connectRabbitMQ();
+    console.log("[processTransactions] Conexión a RabbitMQ exitosa.");
 
     const mainExchange = "main_exchange";
-
+    console.log(`[processTransactions] Asegurando exchange: ${mainExchange}`);
     await channel.assertExchange(mainExchange, "direct", { durable: true });
 
     for (const file of files) {
+      console.log(`[processTransactions] Procesando archivo: ${file}`);
       const data = await readAndValidateFile(file);
+      console.log(`[processTransactions] Transacciones leídas del archivo ${file}: ${data.transactions.length}`);
+
       for (const tx of data.transactions) {
+        console.log(`[processTransactions] Publicando transacción txid: ${tx.txid}`);
         channel.publish(
           mainExchange,
           "transaction",
           Buffer.from(JSON.stringify({ tx, executionId })),
-          { persistent: true }
+          { persistent: true, mandatory: true }
         );
       }
     }
 
-    // Enviar un mensaje de control al final a través del exchange
+    console.log("[processTransactions] Enviando mensaje de control al exchange.");
     channel.publish(
       mainExchange,
       "transaction",
       Buffer.from(JSON.stringify({ control: true, executionId })),
-      { persistent: true }
+      { persistent: true, mandatory: true }
     );
+
+    console.log("[processTransactions] Todas las transacciones y mensaje de control publicados correctamente.");
   } catch (error) {
+    console.error("[processTransactions] Error durante el procesamiento:", error);
     handleError(error, "processTransactions");
   }
 }
+
 /**
  * Procesa un archivo JSON de transacciones.
  * @param {string} file - Nombre del archivo JSON a procesar.

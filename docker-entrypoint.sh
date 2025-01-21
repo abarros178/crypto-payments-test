@@ -12,7 +12,4 @@ npm run migrate
 
 # Iniciar la aplicación en segundo plano
 echo "🚀 Iniciando aplicación..."
-npm start &
-
-# Mantener el contenedor activo
-tail -f /dev/null
+npm start 
