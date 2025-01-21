@@ -52,9 +52,15 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: test
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: "-rabbitmq -setcookie mycookie"
     ports:
       - "5672:5672"
       - "15672:15672" # Consola web de RabbitMQ
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics -q ping --erlang-cookie mycookie"]
+      interval: 20s
+      timeout: 10s
+      retries: 5
 
   # ===========================
   # Node.js Application
@@ -67,6 +73,8 @@ services:
     restart: on-failure
     depends_on:
       postgres:
+        condition: service_healthy
+      rabbitmq:
         condition: service_healthy
     environment:
       NODE_ENV: production
@@ -88,6 +96,8 @@ services:
       - ./data:/app/data
       - ./logs:/app/logs
     entrypoint: ["/bin/sh", "/usr/local/bin/docker-entrypoint.sh"]
+    links:
+      - rabbitmq
 
 volumes:
   postgres_data:

@@ -19,28 +19,57 @@ import { connectRabbitMQ } from "../utils/rabbitmq.js";
 export async function processTransactions(executionId) {
   const files = ["transactions-1.json", "transactions-2.json"];
   try {
-    // Crea o reutiliza un canal de RabbitMQ
+    // Conexión y creación de un canal
     const channel = await connectRabbitMQ();
-    await channel.assertQueue("transactionsQueue", { durable: true });
 
-    // Procesa los dos archivos
+    // Configurar el intercambio principal
+    const mainExchange = "main_exchange";
+    await channel.assertExchange(mainExchange, "direct", { durable: true });
+
+    // Configurar el Dead Letter Exchange
+    const deadLetterExchange = "dead_letter_exchange";
+    await channel.assertExchange(deadLetterExchange, "direct", {
+      durable: true,
+    });
+
+    // Configurar la Dead Letter Queue
+    const deadLetterQueue = "deadLetterQueue";
+    await channel.assertQueue(deadLetterQueue, { durable: true });
+    await channel.bindQueue(deadLetterQueue, deadLetterExchange, "dead");
+
+    // Configurar la cola principal con DLX
+    const mainQueue = "transactionsQueue";
+    await channel.assertQueue(mainQueue, {
+      durable: true,
+      deadLetterExchange, // Vincula al DLX
+      deadLetterRoutingKey: "dead", // Enrutamiento a la DLQ
+    });
+    await channel.bindQueue(mainQueue, mainExchange, "transaction");
+
+    // Procesar los archivos JSON y publicar transacciones
     for (const file of files) {
       const data = await readAndValidateFile(file);
-      // Asumiendo que el JSON tiene una propiedad "transactions"
+
       for (const tx of data.transactions) {
-        // Enviar cada transacción como mensaje a la cola
-        channel.sendToQueue(
-          "transactionsQueue",
-          Buffer.from(JSON.stringify({ tx, executionId }))
+        // Publicar cada transacción en el mainExchange
+        channel.publish(
+          mainExchange,
+          "transaction", // Routing key para la cola principal
+          Buffer.from(JSON.stringify({ tx, executionId })),
+          { persistent: true } // Mensaje persistente
         );
       }
     }
 
-    // Enviar un mensaje de control al final
-    channel.sendToQueue(
-      "transactionsQueue",
-      Buffer.from(JSON.stringify({ control: true, executionId }))
+    // Publicar un mensaje de control al final
+    channel.publish(
+      mainExchange,
+      "transaction",
+      Buffer.from(JSON.stringify({ control: true, executionId })),
+      { persistent: true }
     );
+
+    console.log("✅ [processTransactions] Mensajes publicados correctamente.");
   } catch (error) {
     handleError(error, "processTransactions");
   }
