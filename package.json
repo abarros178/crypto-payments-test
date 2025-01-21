@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "amqplib": "^0.10.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
     "pg": "^8.8.0",
     "uuid": "^11.0.5",

@@ -8,6 +8,8 @@ import db from "../db/connection.js";
 import {
   TransactionValidationError,
 } from "../utils/errors.js";
+import { handleError } from "../utils/errorHandler.js";
+
 
 
 /**

@@ -11,57 +11,49 @@ import db from "../db/connection.js";
 import { connectRabbitMQ } from "../utils/rabbitmq.js";
 
 /**
- * Procesa todas las transacciones de los archivos JSON,
- * pero ahora en vez de guardarlas directamente, las encolamos en RabbitMQ.
+ * Publica transacciones en RabbitMQ a partir de archivos JSON, gestionando un Dead Letter Exchange.
  *
- * @param {string} executionId
+ * @param {string} executionId - Identificador único para rastrear la ejecución actual.
  */
 export async function processTransactions(executionId) {
   const files = ["transactions-1.json", "transactions-2.json"];
-  try {
-    // Conexión y creación de un canal
-    const channel = await connectRabbitMQ();
+  let channel;
 
-    // Configurar el intercambio principal
+  try {
+    channel = await connectRabbitMQ();
+
     const mainExchange = "main_exchange";
     await channel.assertExchange(mainExchange, "direct", { durable: true });
 
-    // Configurar el Dead Letter Exchange
     const deadLetterExchange = "dead_letter_exchange";
-    await channel.assertExchange(deadLetterExchange, "direct", {
-      durable: true,
-    });
+    await channel.assertExchange(deadLetterExchange, "direct", { durable: true });
 
-    // Configurar la Dead Letter Queue
     const deadLetterQueue = "deadLetterQueue";
     await channel.assertQueue(deadLetterQueue, { durable: true });
     await channel.bindQueue(deadLetterQueue, deadLetterExchange, "dead");
 
-    // Configurar la cola principal con DLX
     const mainQueue = "transactionsQueue";
     await channel.assertQueue(mainQueue, {
       durable: true,
-      deadLetterExchange, // Vincula al DLX
-      deadLetterRoutingKey: "dead", // Enrutamiento a la DLQ
+      deadLetterExchange,
+      deadLetterRoutingKey: "dead",
     });
     await channel.bindQueue(mainQueue, mainExchange, "transaction");
 
-    // Procesar los archivos JSON y publicar transacciones
-    for (const file of files) {
+    const publishPromises = files.map(async (file) => {
       const data = await readAndValidateFile(file);
-
-      for (const tx of data.transactions) {
-        // Publicar cada transacción en el mainExchange
+      data.transactions.forEach((tx) => {
         channel.publish(
           mainExchange,
-          "transaction", // Routing key para la cola principal
+          "transaction",
           Buffer.from(JSON.stringify({ tx, executionId })),
-          { persistent: true } // Mensaje persistente
+          { persistent: true }
         );
-      }
-    }
+      });
+    });
 
-    // Publicar un mensaje de control al final
+    await Promise.all(publishPromises);
+
     channel.publish(
       mainExchange,
       "transaction",
@@ -69,34 +61,17 @@ export async function processTransactions(executionId) {
       { persistent: true }
     );
 
-    console.log("✅ [processTransactions] Mensajes publicados correctamente.");
+    console.log("✅ Mensajes publicados correctamente.");
   } catch (error) {
     handleError(error, "processTransactions");
+  } finally {
+    if (channel) {
+      await channel.close();
+      console.log("✅ Canal de RabbitMQ cerrado correctamente.");
+    }
   }
 }
 
-/**
- * Procesa un archivo JSON de transacciones.
- * @param {string} file - Nombre del archivo JSON a procesar.
- * @param {string} executionId - Identificador único para la ejecución actual.
- * @param {Set<string>} seenTxids - Conjunto de txids ya procesados.
- * @returns {Promise<void>}
- */
-async function processFile(file, executionId, seenTxids) {
-  try {
-    const data = await readAndValidateFile(file);
-    const fileTxids = extractTxids(data.transactions);
-    await updateSeenTxidsFromDB(fileTxids, seenTxids);
-    const { validDeposits, failedTransactions } = classifyTransactions(
-      data.transactions,
-      executionId,
-      seenTxids
-    );
-    await persistTransactions(validDeposits, failedTransactions);
-  } catch (error) {
-    handleError(error, `processFile: ${file}`);
-  }
-}
 /**
  * Lee y valida el archivo JSON.
  * @param {string} file - Nombre del archivo JSON.
@@ -108,35 +83,6 @@ async function readAndValidateFile(file) {
   validateFileData(data, file);
   return data;
 }
-
-/**
- * Actualiza el conjunto de txids vistos con los existentes en la base de datos.
- * @param {Array<string>} fileTxids - Lista de txids del archivo actual.
- * @param {Set<string>} seenTxids - Conjunto de txids ya procesados.
- * @returns {Promise<void>}
- */
-async function updateSeenTxidsFromDB(fileTxids, seenTxids) {
-  const existingFromDB = await getExistingTxids(fileTxids);
-  existingFromDB.forEach((row) => seenTxids.add(row.txid));
-}
-/**
- * Persiste las transacciones válidas y fallidas en la base de datos.
- * @param {Array<Object>} validDeposits - Lista de depósitos válidos.
- * @param {Array<Object>} failedTransactions - Lista de transacciones fallidas.
- * @returns {Promise<void>}
- */
-async function persistTransactions(validDeposits, failedTransactions) {
-  await db.query("BEGIN");
-  try {
-    await saveValidDepositsInBatch(validDeposits);
-    await saveFailedTransactionsInBatch(failedTransactions);
-    await db.query("COMMIT");
-  } catch (error) {
-    await db.query("ROLLBACK");
-    handleError(error, "persistTransactions");
-  }
-}
-
 /**
  * Valida el formato de los datos del archivo.
  * @param {Object} data - Datos del archivo JSON.

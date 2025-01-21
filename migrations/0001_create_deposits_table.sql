@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS deposits (
   id SERIAL PRIMARY KEY,
-  txid VARCHAR(128) NOT NULL UNIQUE,
-  address VARCHAR(128) NOT NULL,
+  txid VARCHAR(256) NOT NULL UNIQUE,
+  address VARCHAR(256) NOT NULL,
   amount NUMERIC(18, 8) NOT NULL,
   confirmations INT NOT NULL,
   execution_id UUID NOT NULL,

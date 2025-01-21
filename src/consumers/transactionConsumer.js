@@ -5,40 +5,42 @@ import {
   classifyTransactions,
   persistTransactions,
 } from "../services/transactionHelpers.js";
+import { waitForQueuesEmpty } from "../utils/waitForQueueEmpty.js";
 
 /**
- * Inicia el consumer de transacciones, que escucha la cola "transactionsQueue".
+ * Inicia el consumidor de transacciones, procesando mensajes de la cola "transactionsQueue".
+ * Los mensajes se acumulan en lotes y se procesan en bloques para optimizar la eficiencia.
+ *
+ * @async
+ * @function startTransactionConsumer
+ * @returns {Promise<void>} - Promesa que se resuelve cuando el procesamiento está completo.
+ * @throws {Error} - Lanza un error si ocurre un problema en la configuración del canal o durante el consumo.
  */
 export async function startTransactionConsumer() {
   const channel = await connectRabbitMQ();
-
-  // Configurar el intercambio principal
   const mainExchange = "main_exchange";
-  await channel.assertExchange(mainExchange, "direct", { durable: true });
-
-  // Configurar el Dead Letter Exchange
   const deadLetterExchange = "dead_letter_exchange";
-  await channel.assertExchange(deadLetterExchange, "direct", { durable: true });
-
-  // Configurar la cola principal con DLX
   const mainQueue = "transactionsQueue";
-  await channel.assertQueue(mainQueue, {
-    durable: true,
-    deadLetterExchange, // Vincula al DLX
-    deadLetterRoutingKey: "dead", // Enrutamiento a la DLQ
-  });
-  await channel.bindQueue(mainQueue, mainExchange, "transaction");
+  const BATCH_SIZE = 50;
 
-  // Prefetch(1) para procesamiento en serie (FIFO)
-  channel.prefetch(1);
-
+  const batch = [];
   const seenTxids = new Set();
 
-  // Crear una promesa que se resuelva al recibir el mensaje EOF
   let doneResolve;
   const donePromise = new Promise((resolve) => {
     doneResolve = resolve;
   });
+
+  await channel.assertExchange(mainExchange, "direct", { durable: true });
+  await channel.assertExchange(deadLetterExchange, "direct", { durable: true });
+
+  await channel.assertQueue(mainQueue, {
+    durable: true,
+    deadLetterExchange,
+    deadLetterRoutingKey: "dead",
+  });
+  await channel.bindQueue(mainQueue, mainExchange, "transaction");
+  channel.prefetch(1);
 
   channel.consume(mainQueue, async (msg) => {
     if (!msg) return;
@@ -46,36 +48,59 @@ export async function startTransactionConsumer() {
     try {
       const content = JSON.parse(msg.content.toString());
 
-      // Manejo de mensaje de control
       if (content.control) {
-        console.log("✅ Mensaje de control recibido. Todo el procesamiento está completo.");
+        if (batch.length > 0) {
+          await processBatch(batch, seenTxids);
+          batch.length = 0;
+        }
         channel.ack(msg);
-        doneResolve(); // Notificar que todo está procesado
+        await waitForQueuesEmpty(channel, [mainQueue], 1000, 60000);
+        doneResolve();
         return;
       }
 
-      const { tx, executionId } = content;
+      batch.push(content);
 
-      // Procesar transacción
-      await updateSeenTxidsFromDB([tx.txid], seenTxids);
-      const { validDeposits, failedTransactions } = classifyTransactions(
+      if (batch.length >= BATCH_SIZE) {
+        await processBatch(batch, seenTxids);
+        batch.length = 0;
+      }
+
+      channel.ack(msg);
+    } catch (error) {
+      console.error(`⚠️ Error procesando mensaje: ${error.message}`);
+      channel.nack(msg, false, false);
+    }
+  });
+
+  return donePromise;
+}
+
+
+  /**
+   * Procesa un batch de transacciones.
+   * @param {Array<Object>} batch - Batch de mensajes a procesar.
+   * @param {Set<string>} seenTxids - Conjunto de txids ya procesados.
+   */
+  async function processBatch(batch, seenTxids) {
+    const txids = batch.map(({ tx }) => tx.txid);
+  
+    // Actualizar el conjunto de txids vistos desde la base de datos
+    await updateSeenTxidsFromDB(txids, seenTxids);
+  
+    const validDeposits = [];
+    const failedTransactions = [];
+  
+    for (const { tx, executionId } of batch) {
+      const { validDeposits: valid, failedTransactions: failed } = classifyTransactions(
         [tx],
         executionId,
         seenTxids
       );
-      await persistTransactions(validDeposits, failedTransactions);
-
-      // Reconocer mensaje exitoso
-      channel.ack(msg);
-    } catch (error) {
-      console.error(`⚠️ Error procesando mensaje: ${error.message}`);
-
-      // Manejo de errores: Redirigir al Dead Letter Exchange
-      channel.nack(msg, false, false); // Rechazar sin reintento para que vaya al DLQ
+      validDeposits.push(...valid);
+      failedTransactions.push(...failed);
     }
-  });
-
-  // Retorna la promesa que se resolverá al recibir el mensaje EOF
-  return donePromise;
-}
-
+  
+    // Persistir los resultados en la base de datos
+    await persistTransactions(validDeposits, failedTransactions);
+  }
